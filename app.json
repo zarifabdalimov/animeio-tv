@@ -17,18 +17,31 @@
           }
         }
       ],
+      "@react-native-firebase/app",
       "expo-router",
       "expo-font",
-      "expo-build-properties",
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static",
+            "forceStaticLinking": ["RNFBApp", "RNFBFirestore"]
+          }
+        }
+      ]
     ],
     "android": {
       "edgeToEdgeEnabled": true,
+      "googleServicesFile": "./assets/configs/google-services.json",
+      "package": "com.animeio.tv",
       "splash": {
         "image": "./assets/images/splash.png"
       }
     },
     "ios": {
+      "googleServicesFile": "./assets/configs/GoogleService-Info.plist",
+      "bundleIdentifier": "com.animeio.tv",
       "splash": {
         "image": "./assets/images/splash.png"
       }

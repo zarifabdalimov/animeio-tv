@@ -1,0 +1,20 @@
+@import "tailwindcss";
+@import "uniwind";
+
+@layer theme {
+  :root {
+    @variant dark {
+      --color-label-primary: #fff;
+      --color-label-secondary: #979797;
+
+      --color-bg-primary: #000;
+    }
+
+    @variant light {
+      --color-label-primary: #000;
+      --color-label-secondary: #737373;
+
+      --color-bg-primary: #fff;
+    }
+  }
+}

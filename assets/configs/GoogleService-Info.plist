@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>934382466787-jhk5qn9ef9dbvkdlepnmejvhhmrjvanf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.934382466787-jhk5qn9ef9dbvkdlepnmejvhhmrjvanf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC1DuiRlCSd69g8b0fHYvu9ywFhSr0dXfY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>934382466787</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.animeio.tv</string>
+	<key>PROJECT_ID</key>
+	<string>anime-streaming-a1d45</string>
+	<key>STORAGE_BUCKET</key>
+	<string>anime-streaming-a1d45.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:934382466787:ios:f8b10242122363b03777d6</string>
+</dict>
+</plist>

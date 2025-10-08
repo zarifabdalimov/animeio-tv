@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "934382466787",
+    "project_id": "anime-streaming-a1d45",
+    "storage_bucket": "anime-streaming-a1d45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934382466787:android:e6e51bd24f2f81d43777d6",
+        "android_client_info": {
+          "package_name": "com.animeio.tv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934382466787-2dgv9djm3orgopfctlupjerefqt2eikt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBrXzSTi49D88E3piWkZxxUahO_s9LC9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "934382466787-2dgv9djm3orgopfctlupjerefqt2eikt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
