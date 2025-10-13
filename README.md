@@ -1,79 +1,198 @@
-# Expo Router TV demo 👋
+# Anime.io TV 📺
 
-![Apple TV screen shot](https://github.com/douglowder/examples/assets/6577821/a881466f-a7a0-4c66-b1fc-33235c466997)
-![Android TV screen shot](https://github.com/douglowder/examples/assets/6577821/815c8e01-8275-4cc1-bd57-b9c8bce1fb02)
+A modern TV application for discovering and browsing anime, built with cutting-edge React Native technologies.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 🎯 Project Overview
 
-This project uses
+This is an experimental TV app for watching anime, currently featuring anime discovery and detail screens. The project serves as a playground for exploring the latest React Native TV capabilities with modern tooling.
 
-- the [React Native TV fork](https://github.com/react-native-tvos/react-native-tvos), which supports both phone (Android and iOS) and TV (Android TV and Apple TV) targets
-- the [React Native TV config plugin](https://github.com/react-native-tvos/config-tv/tree/main/packages/config-tv) to allow Expo prebuild to modify the project's native files for TV builds
+**Current Status:** 🚧 Early Development
+- ✅ Anime discovery/browsing interface
+- ✅ Anime detail screens
+- ⏳ Video player (planned)
 
-## 🚀 How to use
+## 🛠️ Tech Stack
 
-- `cd` into the project
+This project showcases modern React Native development with:
 
-- For TV development:
+### Core Technologies
+- **[Expo SDK 54](https://expo.dev)** - Latest Expo version for universal app development
+- **[React 19](https://react.dev)** - Latest React with new features
+- **[React Native TV fork](https://github.com/react-native-tvos/react-native-tvos)** - TV platform support (Apple TV & Android TV)
+- **[Expo Router 6](https://docs.expo.dev/router/introduction)** - File-based routing for React Native
 
-```sh
-yarn
-yarn prebuild:tv # Executes clean Expo prebuild with TV modifications
-yarn ios # Build and run for Apple TV
-yarn android # Build for Android TV
-yarn web # Run the project on web from localhost
-```
-- For mobile development:
+### Styling
+- **[Uniwind](https://docs.uniwind.dev/)** (Beta) - The fastest Tailwind bindings for React Native
+- **[Tailwind CSS v4](https://tailwindcss.com)** - Latest Tailwind with native CSS support
+- **Global CSS** - Modern styling with CSS variables and custom themes
 
-```sh
-yarn
-yarn prebuild # Executes Expo prebuild with no TV modifications
-yarn ios # Build and run for iOS
-yarn android # Build for Android mobile
-yarn web # Run the project on web from localhost
-```
+### Backend & Data
+- **[Firebase/Firestore](https://firebase.google.com)** - Cloud database for anime data
+- **[TanStack Query v5](https://tanstack.com/query)** - Powerful data fetching and caching
 
-> **_NOTE:_**
-> Setting the environment variable `EXPO_TV=1` enables the `@react-native-tvos/config-tv` plugin to modify the project for TV.
-> This can also be done by setting the parameter `isTV` to true in the `app.json`.
+### UI & Utilities
+- **[Expo Image](https://docs.expo.dev/versions/latest/sdk/image/)** - Optimized image component
+- **[React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)** - Smooth animations
+- **[@legendapp/list](https://legendapp.com/open-source/list/)** - High-performance lists
+- **[clsx](https://github.com/lukeed/clsx) + [tailwind-merge](https://github.com/dcastil/tailwind-merge)** - Utility for conditional classes
 
-## Development
+## 🚀 Getting Started
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Prerequisites
 
-This project includes a [demo](src/components/EventHandlingDemo.tsx) showing how to use React Native TV APIs to highlight controls as the user navigates the screen with the remote control.
+- Node.js 18+ 
+- pnpm (or npm/yarn)
+- Xcode (for Apple TV development)
+- Android Studio (for Android TV development)
 
-## Deploy
-
-Deploy on all platforms with Expo Application Services (EAS).
-
-- Deploy the website: `npx eas-cli deploy` — [Learn more](https://docs.expo.dev/eas/hosting/get-started/)
-- Deploy on iOS and Android using: `npx eas-cli build` — [Learn more](https://expo.dev/eas)
-
-## TV specific file extensions
-
-This project includes an [example Metro configuration](./metro.config.js) that allows Metro to resolve application source files with TV-specific code, indicated by specific file extensions (`*.ios.tv.tsx`, `*.android.tv.tsx`, `*.tv.tsx`).
-
-## Get a fresh project
-
-When you're ready, run:
+### Installation
 
 ```bash
-npm run reset-project
+# Clone the repository
+git clone <your-repo-url>
+cd animeio-tv
+
+# Install dependencies
+pnpm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Development
 
-## Learn more
+**For TV Development:**
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+# Start the development server (TV mode enabled by default)
+pnpm start
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/learn): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# Run on Apple TV
+pnpm ios
 
-## Join the community
+# Run on Android TV
+pnpm android
 
-Join our community of developers creating universal apps.
+# Run on web
+pnpm web
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+**For Mobile Development:**
+
+```bash
+# Prebuild for mobile platforms (no TV modifications)
+pnpm prebuild
+
+# Then run ios/android commands
+```
+
+> **Note:** The environment variable `EXPO_TV=1` is set by default in the scripts to enable TV-specific configurations via the `@react-native-tvos/config-tv` plugin.
+
+### Building for Production
+
+```bash
+# Clean prebuild for TV
+pnpm prebuild:tv
+
+# Build with EAS
+npx eas-cli build
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # Expo Router pages
+│   ├── index.tsx          # Home/Discovery screen
+│   ├── anime/             # Anime detail pages
+│   └── _layout.tsx        # Root layout
+├── modules/
+│   ├── anime/             # Anime-related components and logic
+│   ├── discovery/         # Discovery/browse features
+│   └── components/        # Shared UI components
+├── libs/
+│   ├── firebase/          # Firebase configuration
+│   └── firestore/         # Firestore utilities
+├── constants/             # App constants and configs
+├── types/                 # TypeScript type definitions
+└── utils/                 # Utility functions
+```
+
+## 🎨 Styling with Uniwind
+
+This project uses [Uniwind](https://docs.uniwind.dev/), a beta Tailwind CSS implementation for React Native that offers:
+
+- **Near-native performance** - Faster than NativeWind
+- **Tailwind v4 support** - Latest Tailwind features
+- **Global CSS** - Standard CSS with custom properties
+- **Full TypeScript support** - Complete type safety
+
+Example usage:
+```tsx
+import { View, Text } from 'uniwind';
+
+export default function Component() {
+  return (
+    <View className="flex-1 bg-slate-900 p-4">
+      <Text className="text-2xl font-bold text-white">
+        Hello Uniwind!
+      </Text>
+    </View>
+  );
+}
+```
+
+## 🔥 Firebase Setup
+
+1. Create a Firebase project at [firebase.google.com](https://firebase.google.com)
+2. Add your configuration files:
+   - iOS: `ios/animeiotv/GoogleService-Info.plist`
+   - Android: `android/app/google-services.json`
+3. Configure Firestore with your anime data structure
+
+## 📺 TV-Specific Features
+
+### File Extensions
+The Metro bundler is configured to resolve TV-specific files:
+- `*.tv.tsx` - Shared TV code (both Apple TV and Android TV)
+- `*.ios.tv.tsx` - Apple TV specific
+- `*.android.tv.tsx` - Android TV specific
+
+### Focus Management
+The app uses React Native TV APIs for handling remote control navigation and focus management on TV interfaces.
+
+## 🚢 Deployment
+
+### Web Deployment
+```bash
+pnpm deploy
+```
+
+### EAS Build
+```bash
+npx eas-cli build --platform ios
+npx eas-cli build --platform android
+```
+
+## 🔮 Roadmap
+
+- [ ] Video player integration
+- [ ] Episode list and tracking
+- [ ] Search functionality
+- [ ] Favorites/watchlist
+- [ ] Multiple anime sources
+- [ ] User authentication
+- [ ] Viewing history
+
+## 📚 Learn More
+
+- [Expo Documentation](https://docs.expo.dev/)
+- [Uniwind Documentation](https://docs.uniwind.dev/)
+- [React Native TV](https://github.com/react-native-tvos/react-native-tvos)
+- [TanStack Query](https://tanstack.com/query)
+- [Firebase Firestore](https://firebase.google.com/docs/firestore)
+
+## 📄 License
+
+This project is for experimental and educational purposes.
+
+---
+
+Built with ❤️ using the latest React Native technologies
