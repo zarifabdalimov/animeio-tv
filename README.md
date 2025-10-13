@@ -69,30 +69,6 @@ pnpm ios
 
 # Run on Android TV
 pnpm android
-
-# Run on web
-pnpm web
-```
-
-**For Mobile Development:**
-
-```bash
-# Prebuild for mobile platforms (no TV modifications)
-pnpm prebuild
-
-# Then run ios/android commands
-```
-
-> **Note:** The environment variable `EXPO_TV=1` is set by default in the scripts to enable TV-specific configurations via the `@react-native-tvos/config-tv` plugin.
-
-### Building for Production
-
-```bash
-# Clean prebuild for TV
-pnpm prebuild:tv
-
-# Build with EAS
-npx eas-cli build
 ```
 
 ## 📁 Project Structure
@@ -126,7 +102,7 @@ This project uses [Uniwind](https://docs.uniwind.dev/), a beta Tailwind CSS impl
 
 Example usage:
 ```tsx
-import { View, Text } from 'uniwind';
+import { View, Text } from 'react-native';
 
 export default function Component() {
   return (
@@ -149,27 +125,8 @@ export default function Component() {
 
 ## 📺 TV-Specific Features
 
-### File Extensions
-The Metro bundler is configured to resolve TV-specific files:
-- `*.tv.tsx` - Shared TV code (both Apple TV and Android TV)
-- `*.ios.tv.tsx` - Apple TV specific
-- `*.android.tv.tsx` - Android TV specific
-
 ### Focus Management
 The app uses React Native TV APIs for handling remote control navigation and focus management on TV interfaces.
-
-## 🚢 Deployment
-
-### Web Deployment
-```bash
-pnpm deploy
-```
-
-### EAS Build
-```bash
-npx eas-cli build --platform ios
-npx eas-cli build --platform android
-```
 
 ## 🔮 Roadmap
 
