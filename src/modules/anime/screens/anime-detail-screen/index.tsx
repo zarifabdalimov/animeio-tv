@@ -13,7 +13,7 @@ export function AnimeDetailScreen() {
   const { animeId } = useLocalSearchParams<{ animeId: string }>();
   const animeQuery = useAnime(animeId);
   const gradientStyles = useResolveClassNames(
-    "flex flex-1 justify-end p-8 gap-4",
+    "flex flex-1 justify-end px-screen-px py-8 gap-4",
   );
   const bannerStyles = useResolveClassNames("h-[60vh] w-full");
   const seasonsQuery = useAnimeSeasons(animeId);

@@ -1,7 +1,7 @@
 import { LegendList } from "@legendapp/list";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { useSeasonEpisodes } from "~/modules/anime/screens/anime-detail-screen/hooks/use-season-episodes";
-import { Row } from "~/modules/components/row";
+import { Row as R, Row } from '~/modules/components/row'
 import { Tile } from "~/modules/components/tile";
 import { Season, WithId } from "~/types/model";
 
@@ -12,6 +12,7 @@ interface SeasonRowProps {
 
 export function SeasonRow({ animeId, season }: SeasonRowProps) {
   const episodesQuery = useSeasonEpisodes(animeId, season.id);
+  const styles = R.useRowLegendListContentContainerStyles()
 
   if (!episodesQuery.data) return null;
 
@@ -34,6 +35,7 @@ export function SeasonRow({ animeId, season }: SeasonRowProps) {
           </Animated.View>
         )}
         estimatedItemSize={400}
+        contentContainerStyle={styles}
         keyExtractor={(item) => item.id}
         recycleItems
       />

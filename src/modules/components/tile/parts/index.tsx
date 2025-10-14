@@ -28,8 +28,6 @@ export function Caption({ children }: PropsWithChildren) {
   return <Text className="text-label-secondary text-lg">{children}</Text>;
 }
 
-const blurhash =
-  "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
 
 export function Image({
   source,
@@ -37,8 +35,8 @@ export function Image({
 }: PropsWithChildren<{
   source: ImageBackgroundProps["source"];
 }>) {
-  const imageContainerStyles = useResolveClassNames("h-[200px] w-full");
-  const imageStyles = useResolveClassNames("rounded-2xl w-[400px]");
+  const imageContainerStyles = useResolveClassNames("h-tile-h w-full");
+  const imageStyles = useResolveClassNames("rounded-2xl");
 
   return (
     <ImageBackground
@@ -47,7 +45,6 @@ export function Image({
       style={imageContainerStyles}
       cachePolicy="memory"
       imageStyle={imageStyles}
-      placeholder={{ blurhash }}
     >
       {children}
     </ImageBackground>
@@ -55,7 +52,7 @@ export function Image({
 }
 
 export function Container({ children }: PropsWithChildren) {
-  return <View className="gap-2 w-[400px] ml-8 pt-4">{children}</View>;
+  return <View className="gap-2 w-tile-w">{children}</View>;
 }
 
 export function FocusContainer(props: TouchableOpacityProps) {
@@ -81,7 +78,7 @@ export function FocusContainer(props: TouchableOpacityProps) {
       onFocus={handleOnFocus}
       onBlur={handleOnBlur}
       activeOpacity={1}
-      className="w-[400px]"
+      className="w-tile-w"
       {...props}
     />
   );

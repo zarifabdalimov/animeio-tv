@@ -6,6 +6,7 @@ import { AnimeTile } from "./parts/anime-tile";
 
 export function GenreRow({ genre }: { genre: { name: string } }) {
   const animeQuery = useAnimeByGenre(genre);
+  const styles = R.useRowLegendListContentContainerStyles()
 
   return (
     <R.Container>
@@ -16,6 +17,7 @@ export function GenreRow({ genre }: { genre: { name: string } }) {
         <LegendList
           horizontal
           estimatedItemSize={500}
+          contentContainerStyle={styles}
           data={animeQuery.data ?? []}
           renderItem={({ item }) => <AnimeTile anime={item} />}
           keyExtractor={(anime) => anime.name}

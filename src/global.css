@@ -1,6 +1,21 @@
 @import "tailwindcss";
 @import "uniwind";
 
+@theme {
+  --tiles-count: 4;
+
+  --spacing-screen-px: 5.5rem;
+  --spacing-tiles-gap: 2rem;
+  --spacing-tile-w: calc(
+    (
+        100vw - (var(--spacing-screen-px) * 2) -
+          ((var(--tiles-count) - 1) * var(--spacing-tiles-gap))
+      ) /
+      var(--tiles-count)
+  );
+  --spacing-tile-h: var(--spacing-tile-w) / 2;
+}
+
 @layer theme {
   :root {
     @variant dark {
