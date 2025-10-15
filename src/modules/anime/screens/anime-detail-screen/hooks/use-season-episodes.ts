@@ -1,6 +1,8 @@
 import {
   FirebaseFirestoreTypes,
   getDocs,
+  orderBy,
+  query,
 } from "@react-native-firebase/firestore";
 import { useQuery } from "@tanstack/react-query";
 import { animeSeasonEpisodesCollection } from "~/libs/firestore";
@@ -11,7 +13,10 @@ export function useSeasonEpisodes(animeId: string, seasonId: string) {
     queryKey: ["anime", "seasons", animeId, seasonId, "episodes"],
     queryFn: async (): Promise<WithId<Episode>[]> => {
       const snapshot = await getDocs(
-        animeSeasonEpisodesCollection(animeId, seasonId),
+        query(
+          animeSeasonEpisodesCollection(animeId, seasonId),
+          orderBy("index", "asc"),
+        )
       );
       return snapshot.docs.map(
         (doc: FirebaseFirestoreTypes.QueryDocumentSnapshot<Episode>) => ({

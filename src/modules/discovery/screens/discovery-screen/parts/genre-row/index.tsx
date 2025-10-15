@@ -3,8 +3,13 @@ import { Row as R } from "~/modules/components/row";
 import { SkeletonRow } from "~/modules/discovery/screens/discovery-screen/parts/genre-row/parts/skeleton";
 import { useAnimeByGenre } from "../../hooks/use-anime-by-genre";
 import { AnimeTile } from "./parts/anime-tile";
+import { Genre, WithId } from '~/types/model'
 
-export function GenreRow({ genre }: { genre: { name: string } }) {
+interface GenreRowProps {
+  genre: WithId<Genre>;
+}
+
+export function GenreRow({ genre }: GenreRowProps) {
   const animeQuery = useAnimeByGenre(genre);
   const styles = R.useRowLegendListContentContainerStyles()
 
