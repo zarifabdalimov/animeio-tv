@@ -9,6 +9,7 @@ export interface Anime {
   genresIds: string[];
   genres: string[];
   episodeCount: number;
+  filmsCount?: number;
   releaseYears: number[];
   name: string;
 }
