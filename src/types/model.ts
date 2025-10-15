@@ -37,4 +37,7 @@ export interface Episode {
   index: number;
   originalAssets: Assets;
   type: string;
+  sources: {
+    url: string;
+  }[];
 }

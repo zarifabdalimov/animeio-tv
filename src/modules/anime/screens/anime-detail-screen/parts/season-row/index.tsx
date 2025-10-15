@@ -1,9 +1,10 @@
 import { LegendList } from "@legendapp/list";
+import { useRouter } from "expo-router";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { useSeasonEpisodes } from "~/modules/anime/screens/anime-detail-screen/hooks/use-season-episodes";
-import { Row as R, Row } from '~/modules/components/row'
+import { Row as R, Row } from "~/modules/components/row";
 import { Tile } from "~/modules/components/tile";
-import { Season, WithId } from "~/types/model";
+import { Episode, Season, WithId } from "~/types/model";
 
 interface SeasonRowProps {
   animeId: string;
@@ -12,7 +13,12 @@ interface SeasonRowProps {
 
 export function SeasonRow({ animeId, season }: SeasonRowProps) {
   const episodesQuery = useSeasonEpisodes(animeId, season.id);
-  const styles = R.useRowLegendListContentContainerStyles()
+  const styles = R.useRowLegendListContentContainerStyles();
+  const router = useRouter();
+
+  function handleOnPress(episode: WithId<Episode>) {
+    router.push(`/anime/${animeId}/${season.id}/${episode.id}`);
+  }
 
   if (!episodesQuery.data) return null;
 
@@ -25,7 +31,7 @@ export function SeasonRow({ animeId, season }: SeasonRowProps) {
         renderItem={({ item, index }) => (
           <Animated.View entering={FadeInDown.delay(index * 100)}>
             <Tile.Container>
-              <Tile.FocusContainer>
+              <Tile.FocusContainer onPress={() => handleOnPress(item)}>
                 <Tile.Image
                   source={item.assets.poster ?? item.originalAssets.poster}
                 />

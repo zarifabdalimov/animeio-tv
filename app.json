@@ -26,10 +26,14 @@
         {
           "ios": {
             "useFrameworks": "static",
-            "forceStaticLinking": ["RNFBApp", "RNFBFirestore"]
+            "forceStaticLinking": [
+              "RNFBApp",
+              "RNFBFirestore"
+            ]
           }
         }
-      ]
+      ],
+      "expo-video"
     ],
     "android": {
       "edgeToEdgeEnabled": true,
