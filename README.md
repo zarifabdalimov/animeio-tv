@@ -130,7 +130,8 @@ The app uses React Native TV APIs for handling remote control navigation and foc
 
 ## 🔮 Roadmap
 
-- [ ] Video player integration
+- [x] Video player integration
+- [ ] Add cursor based pagination
 - [ ] Episode list and tracking
 - [ ] Search functionality
 - [ ] Favorites/watchlist
